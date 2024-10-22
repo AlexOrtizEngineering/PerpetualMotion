@@ -1,0 +1,98 @@
+<MainScreen>:
+    name: 'main'
+    FloatLayout:
+        size_hint: None, None
+
+	##################
+	##### BUTTONS ####
+        ##################
+
+	# Quit button
+        Button:
+            text: 'X'
+            font_size: 23
+            size_hint: None, None
+            size: root.width * 0.015, root.width * 0.015
+            x: root.width * 0.965
+            y: root.height * 0.945
+            background_color: 0.7, 0.7, 0.7, 1
+            on_release: root.quit()
+
+        DPEAButton:  
+            id: auto
+            color: 0.917, 0.796, 0.380, 1
+            text: "Start"
+            center_x: root.width * 0.5
+            y: root.height * 0.55
+            background_color: 1, 0, 0, 0
+            background_normal: ''
+            size_hint: None,None
+            size: 300,100
+            on_press: root.auto()
+            on_release: root.resetColors()
+
+        # Turn on/off gate
+        DPEAButton:
+            id: armControl
+            color: 0.180, 0.188, 0.980, 1
+            text: "Lower Arm"
+            center_x: root.width * 0.35
+            y: root.height * 0.35
+            background_color: 0, 0, 0, 0
+            background_normal: ''
+            size_hint: None,None
+            size: 300,100
+            on_press: root.toggleArm()
+            on_release: root.resetColors()
+
+        DPEAButton:
+            id: magnetControl
+            color: 0.180, 0.188, 0.980, 1
+            text: "Hold Ball"
+            center_x: root.width * 0.65
+            y: root.height * 0.35
+            background_color: 0, 0, 0, 0
+            background_normal: ''
+            size_hint: None,None
+            size: 300,100
+            on_press: root.toggleMagnet()
+            on_release: root.resetColors()
+
+	##################
+	##### SLIDERS ####
+        ##################
+
+        Slider:
+            id: moveArm
+            orientation: 'horizontal'
+            min: 0
+            max: 2
+            value: root.armPosition
+            step: 1
+            center_x: root.width * 0.6
+            y: root.height * 0.15
+            size_hint_x: 7
+            on_value: root.setArmPosition(self.value)
+
+        ##################
+	##### LABELS #####
+        ##################
+
+        Label:
+            id: title
+            text: 'Robotic Arm'
+            font_size: 55
+            bold: True
+            center_x: root.width * 0.5
+            halign: 'center'
+            y: root.height * 0.75
+            color: 0.9, 0.9, 0.9, 1
+
+        Label:
+            id: armControlLabel
+            text: 'Arm Position: ' + str(root.armPosition)
+            font_size: 40
+            center_x: root.width * 0.22
+            y: root.height * 0.15
+            color: 0.8, 0.8, 0.8, 1
+

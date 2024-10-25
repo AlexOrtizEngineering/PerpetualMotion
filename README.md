@@ -1,2 +1,2 @@
 # PerpetualMotion
-Example code for the Senior project hardware (Robotic Arm and Perpetual Motion Machine)
+Made in collaboration with members of the Dos Pueblos Engineering Academy
